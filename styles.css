@@ -1,0 +1,89 @@
+/* Estilos generales */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fa81fa;
+  }
+  
+  .animation-container {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  #hello-text {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  #music-toggle {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #music-toggle:hover {
+    background-color: #555;
+  }
+  
+  /* Estilos para el contenedor de acceso */
+  .access-container {
+    position: absolute;
+    top: 100px;
+    display: none;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .access-container label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .access-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .access-container button {
+    width: 100%;
+    background-color: #fa81fa;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+  
+  .access-container button:hover {
+    background-color: #e156e1;
+  }
+  
+  

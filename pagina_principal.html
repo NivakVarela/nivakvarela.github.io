@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmación Rosada</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <header>
+    <img src="multimedia/gaby.png" alt="Logo de la empresa">
+  </header>
+
+  <main>
+    <div class="content">
+      <h1>Confirmación</h1>
+      <img src="multimedia/bar.PNG" alt="Imagen">
+      <br><h3>Quieres ir a ver barbie con migo?</h3><br>
+      <div class="buttons">
+        
+        <button id="accept-button">Aceptar</button>
+        <button id="reject-button">Rechazar</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const acceptButton = document.getElementById("accept-button");
+      const rejectButton = document.getElementById("reject-button");
+      const redirectAcceptButton = document.createElement("button");
+      const redirectRejectButton = document.createElement("button");
+      redirectAcceptButton.innerText = "Ir a la página aceptada";
+      redirectRejectButton.innerText = "Ir a la página rechazada";
+
+      acceptButton.addEventListener("click", function () {
+        // Mensaje de agradecimiento y petición de contraseña
+        alert("Gracias amor, nos vemos el jueves para ir a verla juntos. Una última cosita, dale click al botón y pega la contraseña en la página.");
+
+        // Agregar el botón de redireccionamiento para aceptar
+        const buttonsContainer = document.querySelector(".buttons");
+        buttonsContainer.appendChild(redirectAcceptButton);
+      });
+
+      redirectAcceptButton.addEventListener("click", function () {
+        // Redirigir a la página externa al hacer clic en el botón de aceptar
+        window.location.href = "https://www.convertstring.com/es/EncodeDecode/HexDecode";
+      });
+
+      rejectButton.addEventListener("click", function () {
+        // Mostrar alerta "Despegela socia"
+        alert("Despegela socia");
+
+        // Agregar el botón de redireccionamiento para rechazar
+        const buttonsContainer = document.querySelector(".buttons");
+        buttonsContainer.appendChild(redirectRejectButton);
+      });
+
+      redirectRejectButton.addEventListener("click", function () {
+        // Redirigir a otra página externa al hacer clic en el botón de rechazar
+        window.location.href = "https://www.youtube.com/watch?v=mCdA4bJAGGk&ab_channel=sweetblue.";
+      });
+    });
+  </script>
+</body>
+</html>
+

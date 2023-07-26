@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página con Animaciones y Música</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <audio id="background-music" loop autoplay>
+    <source src="multimedia/musica.mp3" type="audio/mpeg">
+    <!-- Agrega otra fuente en caso de que el navegador no soporte el formato MP3 -->
+    <!-- <source src="tu_musica_de_fondo.ogg" type="audio/ogg"> -->
+    Tu navegador no admite el elemento de audio.
+  </audio>
+  <div class="access-container" style="display: none;">
+    <label>La contraseña  esta en tu whatsapp desde hace mucho tiempo pista(comienza con 54)</label><br>
+    <input type="text" id="password-input" placeholder="Ingresa la palabra clave">
+    <button type="button" id="access-button">Acceder</button>
+  </div>
+
+  <div class="animation-container">
+    <h1 id="hello-text">Mensaje 1</h1>
+  </div>
+
+  
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const messages = ["Hola gaby", "Quería desearte...", "Un feliz cumpleaños", "Eres una mujer maravillosa ", "te queria dar este regalito"];
+      let currentIndex = 0;
+
+      const music = document.getElementById("background-music");
+      const passwordInput = document.getElementById("password-input");
+      const accessContainer = document.querySelector(".access-container");
+
+      // Establecer el volumen al 50%
+      music.volume = 0.5;
+
+      // Reproducir música automáticamente una vez que el documento se haya cargado por completo
+      music.play();
+
+      function displayMessage(index) {
+        const animationContainer = document.querySelector(".animation-container");
+        const helloText = document.querySelector("#hello-text");
+
+        animationContainer.style.opacity = 0; // Hacer que el contenedor se desvanezca
+        setTimeout(function () {
+          helloText.textContent = messages[index];
+          animationContainer.style.opacity = 1; // Mostrar el nuevo mensaje con opacidad completa
+
+          setTimeout(function () {
+            animationContainer.style.opacity = 0; // Desvanecer el mensaje actual antes de cambiar al siguiente
+            if (currentIndex < messages.length - 1) {
+              currentIndex++;
+              displayMessage(currentIndex);
+            } else {
+              // Si es el último mensaje, mostramos el campo de texto
+              showAccessContainer();
+            }
+          }, 1500); // Esperar 1 segundo antes de desvanecer el mensaje actual
+        }, 1000); // Esperar 1 segundo antes de cambiar al nuevo mensaje
+      }
+
+      function showAccessContainer() {
+        // Mostramos el campo de texto
+        accessContainer.style.display = "block";
+      }
+
+      document.getElementById("access-button").addEventListener("click", function () {
+        const secretWord = "546520616d6f"; // Palabra clave que debe ingresar el usuario
+        const userInput = passwordInput.value.trim();
+
+        if (userInput.toLowerCase() === secretWord.toLowerCase()) {
+          // Si la palabra clave es correcta, redireccionar a la página principal
+          window.location.href = "pagina_principal.html"; // Cambia esta URL por la que desees
+        } else {
+          // Si la palabra clave es incorrecta, mostrar un mensaje de error
+          alert("Palabra clave incorrecta. Intenta de nuevo.");
+        }
+      });
+
+      displayMessage(currentIndex);
+    });
+  </script>
+</body>
+</html>
+
+
+
